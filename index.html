@@ -1,26 +1,53 @@
-<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>HORDAMY</title><link rel="icon" href="https://i.postimg.cc/8s8z13Gj/Picsart-24-11-09-23-27-33-411.png" type="image/x-icon"><link rel="stylesheet" href="style.css"/><style>.category.movie-row{display:flex;overflow-x:scroll;scrollbar-width:none}.category.movie-row::-webkit-scrollbar{display:none}.img-button img{cursor:pointer;border:2px solid transparent;border-radius:10px}.img-button img:hover{border-image:linear-gradient(45deg,#0ff4c6,#0ff4c6)1}.futuristic-gradient{font-size:2em;font-weight:bold;padding:10px;background:linear-gradient(to right,rgba(0,255,200,1),rgba(0,255,200,0));padding:10px 20px 10px 20px;color:white;display:inline-block;text-shadow:0px 0px 8px rgba(0,255,200,0.7)}</style></head><body><!-- Navbar --><header><nav class="navbar"><div class="logo"><h4>Hordamy</h4></div><ul class="nav-links"></ul></nav></header><!-- Banner principal --><section class="banner"><div class="banner-content"><h1>Liberdade e muito mais</h1><p>Quer aprender?Pegue seu acesso e repasse quando quiser.<br/>Vamos
-lá!</p><button id="saibaMaisButton">Saiba Mais</button></div></section><section class="category"><h2 class="futuristic-gradient">Acesso Especial</h2><div class="movie-row"><a
-href="javascript:void(0)"
-class="img-button"
-id="connectWalletImageBtn1"
-data-link="https://hordamy.com"><img src="https://i.postimg.cc/G3PxJfz4/Trade-em.png" alt="Filme 1"/></a><a
-href="javascript:void(0)"
-class="img-button"
-id="connectWalletImageBtn2"
-data-link="https://hordamy.com"><img src="https://i.postimg.cc/FsfbnRkR/2.jpg" alt="Filme 2"/></a><a
-href="javascript:void(0)"
-class="img-button"
-id="connectWalletImageBtn3"
-data-link="https://hordamy.com"><img src="https://i.postimg.cc/26vTr9Dh/Mago-3.png" alt="Filme 3"/></a><a
-href="javascript:void(0)"
-class="img-button"
-id="connectWalletImageBtn4"
-data-link="ceo.html"><img src="https://i.postimg.cc/wjjSXgkT/Mago-1.png" alt="ceo crypto"/></a><p id="status"></p></div></section><section class="category"><h2 class="futuristic-gradient">Acesso Exclusivo</h2><div class="movie-row"><a
-href="javascript:void(0)"
-class="img-button"
-data-link="ms.html"><img src="https://i.postimg.cc/VsDBVQJ5/1.png" alt="pool 1"/></a></div></section><section class="category"><h2 class="futuristic-gradient">Acesso Livre</h2><div class="movie-row"><a
-href="javascript:void(0)"
-class="img-button"
-id="connectWalletImageBtn6"
-data-link="lv.html"><img src="https://i.postimg.cc/d0tMnFVr/Picsart-24-11-10-20-44-05-027.jpg" alt="pool 1"/></a></div></section><script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script><script>document.getElementById("saibaMaisButton").addEventListener("click",function(){window.location.href="docs.html"});</script><script>async function connectWallet(redirectLink){function isMobile(){const userAgent=navigator.userAgent||navigator.vendor||window.opera;return/android|iPad|iPhone|iPod/.test(userAgent.toLowerCase())}
-function addClickEvent(buttonId){const button=document.getElementById(buttonId);const redirectLink=button.getAttribute('data-link');button.addEventListener('click',function(){connectWallet(redirectLink)})}</script><script>document.querySelectorAll(".img-button").forEach(function(button){button.addEventListener("click",function(){const link=this.getAttribute("data-link");window.open(link,"_blank")})});</script><footer><h5>&copy;2024 Hordamy.Todos os direitos reservados.</h5></footer><script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script><script>document.getElementById("saibaMaisButton").addEventListener("click",function(){window.location.href="docs.html"});</script></body></html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>HORDAMY</title>
+<link rel="icon" href="https://i.postimg.cc/8s8z13Gj/Picsart-24-11-09-23-27-33-411.png" type="image/x-icon">
+<link rel="stylesheet" href="style.css"/>
+<style>.category .movie-row{display:flex;overflow-x:scroll;scrollbar-width:none}.category .movie-row::-webkit-scrollbar{display:none}.img-button img{cursor:pointer;border:2px solid transparent;border-radius:10px}.img-button img:hover{border-image:linear-gradient(45deg,#0ff4c6,#0ff4c6) 1}.futuristic-gradient{font-size:2em;font-weight:bold;padding:10px;background:linear-gradient(to right,rgba(0,255,200,1),rgba(0,255,200,0));padding:10px 20px;color:white;display:inline-block;text-shadow:0px 0px 8px rgba(0,255,200,0.7)}</style>
+</head>
+<body>
+<header>
+<nav class="navbar">
+<div class="logo"><h4>Hordamy</h4></div>
+<ul class="nav-links"></ul>
+</nav>
+</header>
+<section class="banner">
+<div class="banner-content">
+<h1>Liberdade e muito mais</h1>
+<p>Quer aprender? Pegue seu acesso e repasse quando quiser.<br/>Vamos lá!</p>
+<button id="saibaMaisButton">Saiba Mais</button>
+</div>
+</section>
+<section class="category">
+<h2 class="futuristic-gradient">Acesso Especial</h2>
+<div class="movie-row">
+<a href="javascript:void(0)" class="img-button" id="connectWalletImageBtn1" data-link="https://hordamy.com"><img src="https://i.postimg.cc/G3PxJfz4/Trade-em.png" alt="Filme 1"/></a>
+<a href="javascript:void(0)" class="img-button" id="connectWalletImageBtn2" data-link="https://hordamy.com"><img src="https://i.postimg.cc/FsfbnRkR/2.jpg" alt="Filme 2"/></a>
+<a href="javascript:void(0)" class="img-button" id="connectWalletImageBtn3" data-link="https://hordamy.com"><img src="https://i.postimg.cc/26vTr9Dh/Mago-3.png" alt="Filme 3"/></a>
+<a href="javascript:void(0)" class="img-button" id="connectWalletImageBtn4" data-link="ceo.html"><img src="https://i.postimg.cc/wjjSXgkT/Mago-1.png" alt="ceo crypto"/></a>
+<p id="status"></p>
+</div>
+</section>
+<section class="category">
+<h2 class="futuristic-gradient">Acesso Exclusivo</h2>
+<div class="movie-row">
+<a href="javascript:void(0)" class="img-button" data-link="ms.html"><img src="https://i.postimg.cc/VsDBVQJ5/1.png" alt="pool 1"/></a>
+</div>
+</section>
+<section class="category">
+<h2 class="futuristic-gradient">Acesso Livre</h2>
+<div class="movie-row">
+<a href="javascript:void(0)" class="img-button" id="connectWalletImageBtn6" data-link="lv.html"><img src="https://i.postimg.cc/d0tMnFVr/Picsart-24-11-10-20-44-05-027.jpg" alt="pool 1"/></a>
+</div>
+</section>
+<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+<script>document.getElementById("saibaMaisButton").addEventListener("click",function(){window.location.href="docs.html"});</script>
+<script>async function connectWallet(a){function b(){const c=navigator.userAgent||navigator.vendor||window.opera;return/android|iPad|iPhone|iPod/.test(c.toLowerCase())}function d(e){const f=document.getElementById(e),g=f.getAttribute("data-link");f.addEventListener("click",function(){connectWallet(g)})}}</script>
+<script>document.querySelectorAll(".img-button").forEach(function(a){a.addEventListener("click",function(){const b=this.getAttribute("data-link");window.open(b,"_blank")})});</script>
+<footer><h5>&copy; 2024 Hordamy. Todos os direitos reservados.</h5></footer>
+</body>
+</html>
