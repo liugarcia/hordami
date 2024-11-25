@@ -1,27 +1,868 @@
-<!DOCTYPE html><html lang="pt-br"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Sala de Aula</title><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"><style>body{display:flex;flex-direction:column;align-items:center;font-family:Arial,sans-serif;margin:0;background-color:#121212;color:#FFFFFF;padding:10px}.loading-container{display:flex;justify-content:center;align-items:center;height:100vh;background-color:#121212;position:absolute;top:0;left:0;width:100%}.loading-box{width:50px;height:50px;border:5px solid #0ff4c6;border-top:5px solid transparent;border-radius:50%;animation:spin 1.5s linear infinite}
-@keyframes spin{0%{transform:rotate(0deg)}
-100%{transform:rotate(360deg)}}.login-container{display:flex;justify-content:center;align-items:center;height:100vh;position:flex;top:0;left:0;width:100%}.login-box{background:#1c1c1c;border-radius:15px;padding:40px;box-shadow:0 0 20px rgba(0,255,255,0.3);text-align:center;max-width:300px;width:100%;animation:fadeIn 1s ease-out}
-@keyframes fadeIn{0%{opacity:0}
-100%{opacity:1}}
-h2{color:#0ff4c6;font-size:36px;font-weight:bold;text-shadow:0 0 10px #0ff4c6;margin-bottom:20px}.input-group{margin-bottom:20px;position:relative}.input-group label{font-size:16px;font-weight:500;color:#0ff4c6;display:block;margin-bottom:5px}
-input[type="text"],input[type="password"]{width:80%;padding:12px;font-size:16px;color:#fff;background-color:#1c1c1c;border:2px solid #0ff4c6;border-radius:8px;transition:all 0.3s ease;outline:none;align-items:center}
-input[type="text"]:focus,input[type="password"]:focus{border-color:#00ffd0;box-shadow:0 0 8px rgba(0,255,255,0.6)}
-button{width:80%;padding:12px;background-color:#0ff4c6;color:#121212;border:none;font-size:18px;border-radius:8px;cursor:pointer;transition:all 0.3s ease;text-transform:uppercase;font-weight:bold;text-shadow:0 0 5px #0ff4c6;align-items:center}
-button:hover{background-color:#00ffd0;box-shadow:0 0 15px rgba(0,255,255,0.6)}
-button:focus{outline:none}
-#error-message{color:#ff4c4c;font-size:14px;display:none;margin-top:10px}
-@media(max-width:600px){.login-box{padding:30px;width:90%}
-h2{font-size:28px}}
-header{width:100%;position:fixed;top:0;left:0;background-color:transparent;z-index:1000;padding:20px 40px}.logo{position:absolute;left:20px;top:20px}.logo h4{color:#0ff4c6;font-size:30px;font-weight:bold;letter-spacing:2px;text-transform:uppercase;text-shadow:0 0 10px #0ff4c6,0 0 20px #0ff4c6;transition:transform 0.3s}.logo h4:hover{transform:scale(1.1)}
-@media(max-width:768px){.logo h4{font-size:14px}}
-h1{margin:20px;color:#0ff4c6;text-shadow:0 0 10px #0ff4c6}.video-container{width:90%;max-width:800px;margin:20px 0;background:#1c1c1c;padding:10px;border-radius:10px;box-shadow:0 4px 10px rgba(0,255,255,0.2);position:relative}
-video{width:100%;border-radius:10px}.hordamy-label{position:absolute;bottom:50px;bottom:10px;right:10px;color:#0ff4c6;font-size:12px;font-weight:bold;text-shadow:0 0 5px #0ff4c6}.controls{display:flex;gap:15px;margin-top:10px;align-items:center;justify-content:center;flex-wrap:wrap;background:linear-gradient(45deg,#0ff4c6,#004f54);padding:10px;border-radius:10px;box-shadow:0 4px 10px rgba(0,255,255,0.3);width:70%}.control-button,input[type="range"]{background-color:#1c1c1c;border:2px solid #0ff4c6;color:#0ff4c6;padding:8px 12px;font-size:14px;border-radius:8px;transition:background-color 0.3s,box-shadow 0.3s;cursor:pointer;text-shadow:0 0 5px #0ff4c6;box-shadow:0 0 10px rgba(0,255,255,0.2)}.control-button:hover,input[type="range"]:hover{background-color:#0ff4c6;color:#121212;box-shadow:0 0 15px rgba(0,255,255,0.6)}
-input[type="range"]{width:120px;background:linear-gradient(to right,#0ff4c6,#1c1c1c);-webkit-appearance:none;height:8px;border-radius:5px;outline:none}
-input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:16px;height:16px;border-radius:50%;background:#0ff4c6;cursor:pointer;box-shadow:0 0 10px rgba(0,255,255,0.6)}.volume-icon{width:24px;height:24px;background:url('https://img.icons8.com/ios-filled/50/0ff4c6/speaker.png')no-repeat center center;background-size:contain;transition:transform 0.2s ease-in-out;cursor:pointer;box-shadow:0 0 0px rgba(0,255,255,0.6);margin-left:-10px}.thumbnail-container{display:flex;gap:10px;justify-content:center;margin-top:20px;flex-wrap:wrap}.thumbnail-container img{width:248px;height:120px;cursor:pointer;border-radius:5px;transition:transform 0.2s,box-shadow 0.3s;box-shadow:0 0 8px rgba(0,255,255,0.2)}.thumbnail-container img:hover{transform:scale(1.1);box-shadow:0 0 15px rgba(0,255,255,0.5)}.progress-bar{width:100%;height:4px;background:#333;border-radius:5px;margin-top:0px;position:relative}.progress-bar-filled{height:100%;background:#0ff4c6;border-radius:5px;width:0%}
-@media(max-width:600px){.controls{flex-direction:row;align-items:center;justify-content:space-around;width:100%}.control-button,input[type="range"]{width:30%;margin-bottom:10px}.thumbnail-container{flex-direction:column;align-items:center}.thumbnail-container img{width:100%;height:auto;max-width:200px}.volume-icon{width:24px;height:24px;background:url('https://img.icons8.com/ios-filled/50/0ff4c6/speaker.png')no-repeat center center;background-size:contain;transition:transform 0.2s ease-in-out;cursor:pointer;box-shadow:0 0 0px rgba(0,255,255,0.6);margin-left:-40px}.progress-bar{width:90%;height:4px;background:#333;border-radius:5px;margin-top:0px;position:relative}}</style><script>function setThemeClass(){document.documentElement.className=Telegram.WebApp.colorScheme}
-Telegram.WebApp.onEvent('themeChanged',setThemeClass);setThemeClass();window.onload=function(){setTimeout(()=>{document.getElementById('loading-screen').style.display='none';document.getElementById('login-screen').style.display='block'},3000)};document.addEventListener('DOMContentLoaded',function(){const loginForm=document.getElementById('login-form');loginForm.addEventListener('submit',function(event){event.preventDefault();const username=document.getElementById('username').value;const password=document.getElementById('password').value;if(username==="usuario"&&password==="senha"){document.getElementById('login-screen').style.display='none';document.getElementById('main-content').style.display='block'}else{document.getElementById('error-message').style.display='block'}})});</script></head><body><center><!-- Tela de Loading --><div id="loading-screen" class="loading-container"><div class="loading-box"></div></div><br><!-- Tela de Login --><div id="login-screen" class="login-container" style="display: none;"><div class="login-box"><h2>Bem vindo</h2><form id="login-form"><div class="input-group"><label for="username">Usuário</label><input type="text" id="username" placeholder="Digite seu usuário"></div><div class="input-group"><label for="password">Senha</label><input type="password" id="password" placeholder="Digite sua senha"></div><p id="error-message" style="color: red; display: none;">Usuário ou senha incorretos!</p><button type="submit">Entrar</button></form></div></div></center><!-- Conteúdo Principal(Escondido até o login ser bem-sucedido)--><div id="main-content" style="display: none;"><header><div class="logo"><h4>Sala</h4></div></header><br><br><br><center><div class="video-container"><video id="mainVideo" controlsList="nodownload" oncontextmenu="return false;" poster="https://th.bing.com/th/id/OIP.cUy4_6_Oc06Z6D7mfpNpewHaEK?rs=1&pid=ImgDetMain"><source src="assets/video1.mp4" type="video/mp4">Seu navegador não suporta a reprodução de vídeos.</video><div class="hordamy-label">Hordamy</div><!-- Adicionando a palavra "Hordamy" no rodapé --></div></center><!-- Barra de progresso --><div class="progress-bar"><div class="progress-bar-filled" id="progressBar"></div></div><!-- Controles personalizados --><div class="controls"><button id="playPauseButton" class="control-button" onclick="togglePlayPause()"><i class="fas fa-play"></i><!-- Ícone de Play --></button><input type="range" id="volumeControl" min="0" max="1" step="0.1" onchange="changeVolume(this.value)" value="1"><div class="volume-icon" onclick="toggleMute()"></div></div><button class="control-button" onclick="toggleFullScreen()">Tela Cheia</button><!-- Miniaturas --><div class="thumbnail-container"><img src="https://th.bing.com/th/id/OIP.cUy4_6_Oc06Z6D7mfpNpewHaEK?rs=1&pid=ImgDetMain" alt="Video 1" onclick="changeVideo('https://ipfs.io/ipfs/QmWfjVtPKuZsnxDGueiYhRBgDRmJ7qug16kP9BNtP4g5sS?filename=InShot_20241026_165915300.mp4', 'assets/thumbnail1.jpg')"><img src="https://i.pinimg.com/736x/f4/b1/a7/f4b1a7ddd043cdc95579baaa2af63afe.jpg" alt="Video 2" onclick="changeVideo('assets/video2.mp4', 'assets/thumbnail2.jpg')"><img src="assets/thumbnail3.jpg" alt="Video 3" onclick="changeVideo('assets/video3.mp4', 'assets/thumbnail3.jpg')"></div><script>const mainVideo=document.getElementById('mainVideo');const playPauseButton=document.getElementById('playPauseButton');const volumeControl=document.getElementById('volumeControl');const progressBar=document.getElementById('progressBar');function togglePlayPause(){if(mainVideo.paused){mainVideo.play();playPauseButton.innerHTML='<i class="fas fa-pause"></i>'}else{mainVideo.pause();playPauseButton.innerHTML='<i class="fas fa-play"></i>'}}
-function changeVolume(volume){mainVideo.volume=volume}
-function toggleMute(){mainVideo.muted=!mainVideo.muted;document.querySelector('.volume-icon').style.transform=mainVideo.muted?'scale(1.2)':'scale(1)'}
-function changeVideo(src,poster){mainVideo.src=src;mainVideo.poster=poster;mainVideo.load();mainVideo.play()}
-mainVideo.addEventListener('timeupdate',function(){const progress=(mainVideo.currentTime/mainVideo.duration)*100;progressBar.style.width=progress+'%'});</script><br><br><script>document.querySelectorAll('.menu-item').forEach(item=>{item.addEventListener('click',()=>{document.querySelectorAll('.tab-content').forEach(tab=>{tab.style.display='none'});const tabId=item.getAttribute('data-tab');document.getElementById(tabId).style.display='block'})});document.querySelectorAll('.menu-item img').forEach(item=>{item.addEventListener('click',()=>{document.querySelectorAll('.menu-item img').forEach(img=>img.classList.remove('active'));item.classList.add('active')})});document.addEventListener("DOMContentLoaded",function(){async function fetchFromIPFS(hash){const url=`https://ipfs.io/ipfs/${hash}`;try{const response=await fetch(url);if(!response.ok)throw new Error("Erro ao buscar do IPFS");return await response.json()}catch(error){console.error("Erro ao acessar IPFS:",error);return null}}
-fetch('ms.json').then(response=>response.json()).then(data=>{const loadingTime=data.loadingTime;const validUsers=data.validUsers;setTimeout(()=>{document.getElementById("loading-screen").style.display="none";document.getElementById("login-screen").style.display="flex"},loadingTime);document.getElementById("login-form").addEventListener("submit",async function(event){event.preventDefault();const username=document.getElementById("username").value;const password=document.getElementById("password").value;const user=validUsers.find(user=>user.username===username);if(user&&user.job){const credentials=await fetchFromIPFS(user.job);if(credentials&&credentials.password===password){document.getElementById("login-screen").style.display="none";document.getElementById("main-content").style.display="block";showSection('home')}else{document.getElementById("error-message").style.display="block"}}else{document.getElementById("error-message").style.display="block"}});function showSection(sectionId){const sections=document.querySelectorAll('.section');sections.forEach(section=>section.style.display='none');document.getElementById(sectionId).style.display='block'}}).catch(error=>console.error("Erro 401",error))});</script><script>function toggleFullScreen(){if(!document.fullscreenElement){if(mainVideo.requestFullscreen){mainVideo.requestFullscreen()}else if(mainVideo.mozRequestFullScreen){mainVideo.mozRequestFullScreen()}else if(mainVideo.webkitRequestFullscreen){mainVideo.webkitRequestFullscreen()}else if(mainVideo.msRequestFullscreen){mainVideo.msRequestFullscreen()}}else{if(document.exitFullscreen){document.exitFullscreen()}else if(document.mozCancelFullScreen){document.mozCancelFullScreen()}else if(document.webkitExitFullscreen){document.webkitExitFullscreen()}else if(document.msExitFullscreen){document.msExitFullscreen()}}}</script></body></html>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sala de Aula</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+ 
+    <style>
+      
+      
+      
+        
+      
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #121212;
+            color: #FFFFFF;
+            padding: 10px;
+          
+        }  
+      
+      
+      
+      
+      
+      /* Tela de Loading */
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #121212;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+}
+
+.loading-box {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #0ff4c6;
+    border-top: 5px solid transparent;
+    border-radius: 50%;
+    animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Tela de Login */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: flex;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.login-box {
+    background: #1c1c1c;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+    text-align: center;
+    max-width: 300px;
+    width: 100%;
+   
+    animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+h2 {
+    color: #0ff4c6;
+    font-size: 36px;
+    font-weight: bold;
+    text-shadow: 0 0 10px #0ff4c6;
+    margin-bottom: 20px;
+}
+
+/* Estilo dos campos de entrada */
+.input-group {
+    margin-bottom: 20px;
+    position: relative;
+   
+            
+}
+
+.input-group label {
+    font-size: 16px;
+    font-weight: 500;
+    color: #0ff4c6;
+    display: block;
+    margin-bottom: 5px;
+  
+        
+
+   
+}
+
+input[type="text"], input[type="password"] {
+    width: 80%;
+    padding: 12px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #1c1c1c;
+    border: 2px solid #0ff4c6;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    outline: none;
+       align-items: center;
+   
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+    border-color: #00ffd0;
+    box-shadow: 0 0 8px rgba(0, 255, 255, 0.6);
+        
+}
+
+button {
+    width: 80%;
+    padding: 12px;
+    background-color: #0ff4c6;
+    color: #121212;
+    border: none;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-shadow: 0 0 5px #0ff4c6;
+   align-items: center;
+}
+
+button:hover {
+    background-color: #00ffd0;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+}
+
+button:focus {
+    outline: none;
+}
+
+/* Mensagem de erro */
+#error-message {
+    color: #ff4c4c;
+    font-size: 14px;
+    display: none;
+    margin-top: 10px;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .login-box {
+        padding: 30px;
+        width: 90%;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+}
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+ 
+
+/* Estilo do header */
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+    z-index: 1000; /* Garante que o header fique acima de outros elementos */
+    padding: 20px 40px;
+}
+
+/* Logo */
+.logo {
+    position: absolute;
+    left: 20px; /* Posição do logo à esquerda */
+    top: 20px; /* Posição do logo no topo */
+}
+
+.logo h4 {
+    color: #0ff4c6;
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px #0ff4c6, 0 0 20px #0ff4c6;
+    transition: transform 0.3s;
+}
+
+/* Efeito hover no logo */
+.logo h4:hover {
+    transform: scale(1.1);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .logo h4 {
+        font-size: 14px;
+    }
+}
+ 
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+  
+
+        h1 {
+            margin: 20px;
+            color: #0ff4c6;
+            text-shadow: 0 0 10px #0ff4c6;
+        }
+
+        .video-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px 0;
+            background: #1c1c1c;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 255, 255, 0.2);
+            position: relative; /* Para posicionar o texto no rodapé */
+        }
+
+        video {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .hordamy-label {
+            position: absolute;
+          
+           bottom: 50px;
+            bottom: 10px;
+            right: 10px;
+            color: #0ff4c6;
+            font-size: 12px;
+            font-weight: bold;
+            text-shadow: 0 0 5px #0ff4c6;
+        }
+
+        .controls {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            background: linear-gradient(45deg, #0ff4c6 , #004f54);
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 255, 255, 0.3);
+            width: 70%;
+        }
+
+        .control-button, input[type="range"] {
+            background-color: #1c1c1c;
+            border: 2px solid #0ff4c6;
+            color: #0ff4c6;
+            padding: 8px 12px;
+            font-size: 14px;
+            border-radius: 8px;
+            transition: background-color 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            text-shadow: 0 0 5px #0ff4c6;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+        }
+
+        .control-button:hover, input[type="range"]:hover {
+            background-color: #0ff4c6;
+            color: #121212;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+        }
+
+        input[type="range"] {
+            width: 120px;
+            background: linear-gradient(to right, #0ff4c6, #1c1c1c);
+            -webkit-appearance: none;
+            height: 8px;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #0ff4c6;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
+        }
+
+        .volume-icon {
+            width: 24px;
+            height: 24px;
+            background: url('https://img.icons8.com/ios-filled/50/0ff4c6/speaker.png') no-repeat center center;
+            background-size: contain;
+            transition: transform 0.2s ease-in-out;
+            cursor: pointer;
+            box-shadow: 0 0 0px rgba(0, 255, 255, 0.6);
+            margin-left: -10px;
+        }
+
+        .thumbnail-container {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .thumbnail-container img {
+            width: 248px;
+            height: 120px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: transform 0.2s, box-shadow 0.3s;
+            box-shadow: 0 0 8px rgba(0, 255, 255, 0.2);
+        }
+
+        .thumbnail-container img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 4px;
+            background: #333;
+            border-radius: 5px;
+            margin-top: 0px;
+            position: relative;
+        }
+
+        .progress-bar-filled {
+            height: 100%;
+            background: #0ff4c6;
+            border-radius: 5px;
+            width: 0%;
+        }
+
+        @media (max-width: 600px) {
+            .controls {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-around;
+                width: 100%;
+            }
+
+            .control-button, input[type="range"] {
+                width: 30%;
+                margin-bottom: 10px;
+            }
+
+            .thumbnail-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .thumbnail-container img {
+                width: 100%;
+                height: auto;
+                max-width: 200px;
+            }
+
+            .volume-icon {
+                width: 24px;
+                height: 24px;
+                background: url('https://img.icons8.com/ios-filled/50/0ff4c6/speaker.png') no-repeat center center;
+                background-size: contain;
+                transition: transform 0.2s ease-in-out;
+                cursor: pointer;
+                box-shadow: 0 0 0px rgba(0, 255, 255, 0.6);
+                margin-left: -40px;
+            }
+
+            .progress-bar {
+                width: 90%;
+                height: 4px;
+                background: #333;
+                border-radius: 5px;
+                margin-top: 0px;
+                position: relative;
+            }
+        }
+    </style>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      
+  
+    
+    
+        <script>
+        function setThemeClass() {
+            document.documentElement.className = Telegram.WebApp.colorScheme;
+        }
+        Telegram.WebApp.onEvent('themeChanged', setThemeClass);
+        setThemeClass();
+
+        // Função para mostrar a tela de login após 3 segundos
+        window.onload = function() {
+            setTimeout(() => {
+                document.getElementById('loading-screen').style.display = 'none';
+                document.getElementById('login-screen').style.display = 'block';
+            }, 3000);
+        };
+
+        // Função de validação do formulário de login
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginForm = document.getElementById('login-form');
+            loginForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
+
+                // Exemplo de validação simples
+                if (username === "usuario" && password === "senha") {
+                    document.getElementById('login-screen').style.display = 'none';
+                    document.getElementById('main-content').style.display = 'block';
+                } else {
+                    document.getElementById('error-message').style.display = 'block';
+                }
+            });
+        });
+    </script>  
+    
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</head>
+<body>
+  
+  
+  
+  
+  
+  
+  <center>
+  
+  
+  
+      
+    <!-- Tela de Loading -->
+    <div id="loading-screen" class="loading-container">
+        <div class="loading-box"></div>
+    </div>
+<br>
+    <!-- Tela de Login -->
+    <div id="login-screen" class="login-container" style="display: none;">
+        <div class="login-box">
+            <h2>Bem vindo</h2>
+            <form id="login-form">
+                <div class="input-group">
+                    <label for="username">Usuário</label>
+                    <input type="text" id="username" placeholder="Digite seu usuário">
+                </div>
+                <div class="input-group">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" placeholder="Digite sua senha">
+                </div>
+                <p id="error-message" style="color: red; display: none;">Usuário ou senha incorretos!</p>
+                <button type="submit">Entrar</button>
+            </form>
+        </div>
+    </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  </center>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+
+    <!-- Conteúdo Principal (Escondido até o login ser bem-sucedido) -->
+    <div id="main-content" style="display: none;">
+      
+    
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+<header>
+    <div class="logo">
+        <h4>Sala</h4>
+    </div>
+</header>
+
+  <br><br><br>
+  
+  
+
+ <center> 
+    
+    <div class="video-container">
+        <video id="mainVideo" controlsList="nodownload" oncontextmenu="return false;" poster="https://i.postimg.cc/PrW810Vm/marketing-digital.png">
+            <source src="https://jade-detailed-slug-469.mypinata.cloud/ipfs/QmVf2uEvHKtctFcukRmLFTNGehtN5VAzPNWbwyCCPqF5zr" type="video/mp4">
+            Seu navegador não suporta a reprodução de vídeos.
+        </video>
+        <div class="hordamy-label">Hordamy</div> <!-- Adicionando a palavra "Hordamy" no rodapé -->
+   </div></center>
+
+    <!-- Barra de progresso -->
+    <div class="progress-bar">
+        <div class="progress-bar-filled" id="progressBar"></div>
+    </div>
+
+    <!-- Controles personalizados -->
+    <div class="controls">
+        <button id="playPauseButton" class="control-button" onclick="togglePlayPause()">
+            <i class="fas fa-play"></i> <!-- Ícone de Play -->
+        </button>
+        
+        <input type="range" id="volumeControl" min="0" max="1" step="0.1" onchange="changeVolume(this.value)" value="1">
+        
+        <div class="volume-icon" onclick="toggleMute()"></div>
+    </div><br><br>
+<center><button class="control-button" onclick="toggleFullScreen()">Tela Cheia</button></center>
+
+    <!-- Miniaturas -->
+<!--    <div class="thumbnail-container">
+        <img src="https://th.bing.com/th/id/OIP.cUy4_6_Oc06Z6D7mfpNpewHaEK?rs=1&pid=ImgDetMain" alt="Video 1" onclick="changeVideo('https://ipfs.io/ipfs/QmWfjVtPKuZsnxDGueiYhRBgDRmJ7qug16kP9BNtP4g5sS?filename=InShot_20241026_165915300.mp4', 'assets/thumbnail1.jpg')">
+        <img src="https://i.pinimg.com/736x/f4/b1/a7/f4b1a7ddd043cdc95579baaa2af63afe.jpg" alt="Video 2" onclick="changeVideo('assets/video2.mp4', 'assets/thumbnail2.jpg')">
+        <img src="assets/thumbnail3.jpg" alt="Video 3" onclick="changeVideo('assets/video3.mp4', 'assets/thumbnail3.jpg')">
+    </div> -->
+    
+    <script>
+        const mainVideo = document.getElementById('mainVideo');
+        const playPauseButton = document.getElementById('playPauseButton');
+        const volumeControl = document.getElementById('volumeControl');
+        const progressBar = document.getElementById('progressBar');
+
+        function togglePlayPause() {
+            if (mainVideo.paused) {
+                mainVideo.play();
+                playPauseButton.innerHTML = '<i class="fas fa-pause"></i>'; // Ícone de Pause
+            } else {
+                mainVideo.pause();
+                playPauseButton.innerHTML = '<i class="fas fa-play"></i>';
+            }
+        }
+
+        function changeVolume(volume) {
+            mainVideo.volume = volume;
+        }
+
+        function toggleMute() {
+            mainVideo.muted = !mainVideo.muted;
+            document.querySelector('.volume-icon').style.transform = mainVideo.muted ? 'scale(1.2)' : 'scale(1)';
+        }
+
+        function changeVideo(src, poster) {
+            mainVideo.src = src;
+            mainVideo.poster = poster;
+            mainVideo.load();
+            mainVideo.play();
+        }
+
+        // Atualizando a barra de progresso conforme o tempo do vídeo
+        mainVideo.addEventListener('timeupdate', function() {
+            const progress = (mainVideo.currentTime / mainVideo.duration) * 100;
+            progressBar.style.width = progress + '%';
+        });
+    </script>
+  <br><br>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <script>// Seleciona todos os itens do menu
+document.querySelectorAll('.menu-item').forEach(item => {
+    item.addEventListener('click', () => {
+        // Esconde todas as seções
+        document.querySelectorAll('.tab-content').forEach(tab => {
+            tab.style.display = 'none';
+        });
+        
+        // Mostra a seção correspondente ao menu clicado
+        const tabId = item.getAttribute('data-tab');
+        document.getElementById(tabId).style.display = 'block';
+    });
+});
+
+
+
+
+
+
+
+
+
+
+document.querySelectorAll('.menu-item img').forEach(item => {
+    item.addEventListener('click', () => {
+        document.querySelectorAll('.menu-item img').forEach(img => img.classList.remove('active'));
+        item.classList.add('active');
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+        // Função para buscar dados do IPFS
+        async function fetchFromIPFS(hash) {
+            const url = `https://ipfs.io/ipfs/${hash}`;
+            try {
+                const response = await fetch(url);
+                if (!response.ok) throw new Error("Erro ao buscar do IPFS");
+                return await response.json();
+            } catch (error) {
+                console.error("Erro ao acessar IPFS:", error);
+                return null;
+            }
+        }
+
+        // Carregar dados do JSON
+        fetch('ms.json')
+            .then(response => response.json())
+            .then(data => {
+                const loadingTime = data.loadingTime;
+                const validUsers = data.validUsers;
+
+                // Mostra a tela de login após o tempo de carregamento
+                setTimeout(() => {
+                    document.getElementById("loading-screen").style.display = "none";
+                    document.getElementById("login-screen").style.display = "flex";
+                }, loadingTime);
+
+                // Adiciona listener ao formulário de login
+                document.getElementById("login-form").addEventListener("submit", async function (event) {
+                    event.preventDefault();
+
+                    const username = document.getElementById("username").value;
+                    const password = document.getElementById("password").value;
+
+                    // Procura o usuário no JSON
+                    const user = validUsers.find(user => user.username === username);
+
+                    if (user && user.job) {
+                        // Busca as credenciais do IPFS
+                        const credentials = await fetchFromIPFS(user.job);
+
+                        if (credentials && credentials.password === password) {
+                            // Login bem-sucedido
+                            document.getElementById("login-screen").style.display = "none";
+                            document.getElementById("main-content").style.display = "block";
+                            showSection('home');
+                        } else {
+                            // Senha incorreta
+                            document.getElementById("error-message").style.display = "block";
+                        }
+                    } else {
+                        // Usuário não encontrado
+                        document.getElementById("error-message").style.display = "block";
+                    }
+                });
+
+                function showSection(sectionId) {
+                    const sections = document.querySelectorAll('.section');
+                    sections.forEach(section => section.style.display = 'none');
+                    document.getElementById(sectionId).style.display = 'block';
+                }
+            })
+            .catch(error => console.error("Erro 401", error));
+    });
+</script>
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <script>
+      
+     
+
+// Função para alternar para o modo de tela cheia
+function toggleFullScreen() {
+    if (!document.fullscreenElement) { // Verifica se já está em modo tela cheia
+        if (mainVideo.requestFullscreen) {
+            mainVideo.requestFullscreen(); // Para navegadores modernos
+        } else if (mainVideo.mozRequestFullScreen) { // Para Firefox
+            mainVideo.mozRequestFullScreen();
+        } else if (mainVideo.webkitRequestFullscreen) { // Para Chrome, Safari e Opera
+            mainVideo.webkitRequestFullscreen();
+        } else if (mainVideo.msRequestFullscreen) { // Para IE/Edge
+            mainVideo.msRequestFullscreen();
+        }
+    } else {
+        if (document.exitFullscreen) {
+            document.exitFullscreen(); // Para sair do modo tela cheia
+        } else if (document.mozCancelFullScreen) { // Para Firefox
+            document.mozCancelFullScreen();
+        } else if (document.webkitExitFullscreen) { // Para Chrome, Safari e Opera
+            document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) { // Para IE/Edge
+            document.msExitFullscreen();
+        }
+    }
+}
+
+      
+      
+      
+      
+      </script>
+      
+      
+      
+      
+      
+      
+      
+
+</body>
+</html>
