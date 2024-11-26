@@ -761,7 +761,7 @@ document.querySelectorAll('.menu-item img').forEach(item => {
         }
 
         // Carregar dados do JSON
-        fetch('ms.json')
+        fetch('https://hordess.glitch.me/ms.json')
             .then(response => response.json())
             .then(data => {
                 const loadingTime = data.loadingTime;
